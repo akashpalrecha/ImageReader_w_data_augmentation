@@ -6,10 +6,12 @@ The class `ImageReader` serves to provide all of image reading and data augmenta
  <br>
 Here is an example to show just how easy it is: <br>
  <br>
-`tfms = [Horizontal_flip(), Vertical_flip(), Gaussian_blur(3),` <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`Crop_and_resize(do_crop=False, sz=(300, 300))]` <br>
-`imr = ImageReader(PATH_TO_IMAGES, transforms=tfms)` <br>
-`image = imr.read_image_random()` <br>
+```python
+tfms = [Horizontal_flip(), Vertical_flip(), Gaussian_blur(3),
+       Crop_and_resize(do_crop=False, sz=(300, 300))]
+imr = ImageReader(PATH_TO_IMAGES, transforms=tfms)
+image = imr.read_image_random()
+```
 <br>
 This will read an image from the given path with random transformations applied each time an image is read.
 <br><br>
@@ -27,16 +29,17 @@ The file `Transformer.py` provides a `Transformer` class that is used by the `Im
 
 
 A typical way to use this library would be as follows:  <br>
+```python
+from ImageReader import *
 
-`from ImageReader import *` <br> <br>
+tfms = [Horizontal_flip(), Vertical_flip(), Gaussian_blur(3),
+        Crop_and_resize(do_crop=False, sz=(300, 300))]
+imr = ImageReader(PATH_TO_IMAGES, transforms=tfms)
+image = imr.read_image_random()
+```
 
-`tfms = [Horizontal_flip(), Vertical_flip(), Gaussian_blur(3),` <br>
-`		Crop_and_resize(do_crop=False, sz=(300, 300))]` <br>
-`imr = ImageReader(PATH_TO_IMAGES, transforms=tfms)` <br>
-`image = imr.read_image_random()` <br>
-
- <br> <br>
+<br> <br>
 Dependencies:  <br>
 OpenCV, skimage, Numpy, Matplotlib, os.
- <br> <br>
+<br> <br>
 Use as you please :-)
